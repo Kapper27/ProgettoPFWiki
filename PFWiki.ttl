@@ -1,0 +1,997 @@
+@prefix : <http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki> .
+
+<http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki> rdf:type owl:Ontology ;
+                                                             <http://purl.org/dc/elements/1.1/creator> "Andrea Pandolfi" ;
+                                                             <http://purl.org/dc/elements/1.1/date> "2025-01-26" ;
+                                                             <http://purl.org/dc/elements/1.1/description> "Un'ontologia per rappresentare il gioco di ruolo Pathfinder, le campagne basate su questo set di regole e gli eventi di quest'ultime."@it ;
+                                                             <http://purl.org/dc/elements/1.1/title> "Pathfinder Wiki Ontology"@en ;
+                                                             <http://purl.org/vocab/vann/preferredNamespacePrefix> "http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#" ,
+                                                                                                                   "pfwiki" ;
+                                                             rdfs:label "PFWiki"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/date
+<http://purl.org/dc/elements/1.1/date> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/description
+<http://purl.org/dc/elements/1.1/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+<http://purl.org/dc/elements/1.1/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2003/06/sw-vocab-status/ns#term_status
+<http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#appartieneCampagna
+:appartieneCampagna rdf:type owl:ObjectProperty ,
+                             owl:FunctionalProperty ;
+                    rdfs:domain :Evento ;
+                    rdfs:range :Campagna ;
+                    rdfs:comment "Rappresenta l'appartenenza di un evento ad una determinata campagna"@it ;
+                    rdfs:label "Appartiene alla campagna"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#concedeAbilità
+:concedeAbilità rdf:type owl:ObjectProperty ,
+                         owl:TransitiveProperty ;
+                rdfs:domain :Classe ;
+                rdfs:range :Abilità ;
+                rdfs:comment "Rappresenta il fatto che una determinata abilità viene concessa da una determinata classe"@it ;
+                rdfs:label "Concede abilità"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#conosceIncantesimo
+:conosceIncantesimo rdf:type owl:ObjectProperty ;
+                    rdfs:domain :Personaggio ;
+                    rdfs:range :Incantesimo ;
+                    rdfs:comment "Rappresenta la capacità di un personaggio di usare un determinato incantesimo"@it ;
+                    rdfs:label "Conosce incantesimo"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#haAbilità
+:haAbilità rdf:type owl:ObjectProperty ;
+           rdfs:domain :Personaggio ;
+           rdfs:range :Abilità ;
+           rdfs:comment "Rappresenta la capacità di un determinato personaggio di usare una determinata abilità"@it ;
+           rdfs:label "Ha abilità"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#haClasse
+:haClasse rdf:type owl:ObjectProperty ,
+                   owl:FunctionalProperty ;
+          rdfs:domain :Personaggio ;
+          rdfs:range :Classe ;
+          rdfs:comment "Rappresenta la classe di un determinato personaggio"@it ;
+          rdfs:label "Ha classe"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#haGiocatore
+:haGiocatore rdf:type owl:ObjectProperty ,
+                      owl:FunctionalProperty ;
+             rdfs:domain :Personaggio ;
+             rdfs:range :Giocatore ;
+             rdfs:comment "Rappresenta l'appartenenza di un personaggio ad un deteminato giocatore"@it ;
+             rdfs:label "Ha giocatore"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#haRazza
+:haRazza rdf:type owl:ObjectProperty ,
+                  owl:FunctionalProperty ;
+         rdfs:domain :Personaggio ;
+         rdfs:range :Razza ;
+         rdfs:comment "Rappresenta la razza di un personaggio"@it ;
+         rdfs:label "Ha razza"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#hasFirstEvent
+:hasFirstEvent rdf:type owl:ObjectProperty ,
+                        owl:FunctionalProperty ;
+               rdfs:domain :Campagna ;
+               rdfs:range :Evento ;
+               rdfs:comment "Rappresenta il collegamento con il primo evento di una campagna"@it ;
+               rdfs:label "Primo evento"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#hasLastEvent
+:hasLastEvent rdf:type owl:ObjectProperty ,
+                       owl:FunctionalProperty ;
+              rdfs:domain :Campagna ;
+              rdfs:range :Evento ;
+              rdfs:comment "Rappresenta il collegamento con l'ultimo evento di una campagna"@it ;
+              rdfs:label "Ultimo evento"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#hasNextEvent
+:hasNextEvent rdf:type owl:ObjectProperty ;
+              owl:inverseOf :hasPreviousEvent ;
+              rdf:type owl:FunctionalProperty ,
+                       owl:AsymmetricProperty ,
+                       owl:IrreflexiveProperty ;
+              rdfs:domain :Evento ;
+              rdfs:range :Evento ;
+              rdfs:comment "Rappresenta il collegamento tra un evento e il suo successore nella lista di eventi"@it ;
+              rdfs:label "Evento successivo"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#hasPreviousEvent
+:hasPreviousEvent rdf:type owl:ObjectProperty ;
+                  rdfs:comment "Rappresenta il collegamento tra un evento e il suo predecessore nella lista di eventi"@it ;
+                  rdfs:label "Evento precedente"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#objectParticipating
+:objectParticipating rdf:type owl:ObjectProperty ,
+                              owl:FunctionalProperty ;
+                     rdfs:domain :ParticipantRole ;
+                     rdfs:range :Creatura ;
+                     rdfs:comment "Rappresenta il collegamento tra una creatura ed una sua \"istanza\" in un evento"@it ;
+                     rdfs:label "Creatura partecipante"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#participatingInEvent
+:participatingInEvent rdf:type owl:ObjectProperty ,
+                               owl:FunctionalProperty ;
+                      rdfs:domain :ParticipantRole ;
+                      rdfs:range :Incontro ;
+                      rdfs:comment "Collegamento tra l'istanza di una creatura e uno scontro"@it ;
+                      rdfs:label "Partecipa allo scontro"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#possiede
+:possiede rdf:type owl:ObjectProperty ;
+          rdfs:domain :Creatura ;
+          rdfs:range :Oggetto ;
+          rdfs:comment "Rappresenta il fatto che una determinata creatura possiede un determinato oggetto"@it ;
+          rdfs:label "Possiede oggetto"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#roleOfParticipant
+:roleOfParticipant rdf:type owl:ObjectProperty ,
+                            owl:FunctionalProperty ;
+                   rdfs:domain :ParticipantRole ;
+                   rdfs:range :Role ;
+                   rdfs:comment "Rappresenta il ruolo di un partecipante rispetto ad uno scontro"@it ;
+                   rdfs:label "Ruolo del partecipante"@it .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#concedeIncantesimiArcani
+:concedeIncantesimiArcani rdf:type owl:DatatypeProperty ,
+                                   owl:FunctionalProperty ;
+                          rdfs:domain :Classe ;
+                          rdfs:range xsd:boolean ;
+                          rdfs:comment "Stabilisce se la classe concede o meno incantesimi arcani"@it ;
+                          rdfs:label "Concede incantesimi arcani"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#concedeIncantesimiDivini
+:concedeIncantesimiDivini rdf:type owl:DatatypeProperty ,
+                                   owl:FunctionalProperty ;
+                          rdfs:domain :Classe ;
+                          rdfs:range xsd:boolean ;
+                          rdfs:comment "Stabilisce se la classe concede o meno incantesimi divini"@it ;
+                          rdfs:label "Concede incantesimi divini"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#dataEvento
+:dataEvento rdf:type owl:DatatypeProperty ,
+                     owl:FunctionalProperty ;
+            rdfs:domain :Evento ;
+            rdfs:range xsd:dateTime ;
+            rdfs:comment "Rappresenta la data di un evento"@it ;
+            rdfs:label "Data evento"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#livelloRichiestoAbilità
+:livelloRichiestoAbilità rdf:type owl:DatatypeProperty ,
+                                  owl:FunctionalProperty ;
+                         rdfs:domain :Abilità ;
+                         rdfs:range xsd:integer ;
+                         rdfs:comment "Stabilisce il livello richiesto per ottenere una determinata abilità"@it ;
+                         rdfs:label "Livello richiesto abilità"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#valoreLivelloIncantesimo
+:valoreLivelloIncantesimo rdf:type owl:DatatypeProperty ,
+                                   owl:FunctionalProperty ;
+                          rdfs:domain :Incantesimo ;
+                          rdfs:range xsd:integer ;
+                          rdfs:comment "Stabilisce il livello richiesto per ottenere l'incantesimo"@it ;
+                          rdfs:label "Livello richiesto incantesimo"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#valoreLivelloPersonaggio
+:valoreLivelloPersonaggio rdf:type owl:DatatypeProperty ,
+                                   owl:FunctionalProperty ;
+                          rdfs:domain :Personaggio ;
+                          rdfs:range xsd:integer ;
+                          rdfs:comment "Stabilisce il livello del personaggio"@it ;
+                          rdfs:label "Livello personaggio"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#èMagico
+:èMagico rdf:type owl:DatatypeProperty ,
+                  owl:FunctionalProperty ;
+         rdfs:domain :Oggetto ;
+         rdfs:range xsd:boolean ;
+         rdfs:comment "Stabilisce se l'oggetto ha proprietà magiche"@it ;
+         rdfs:label "È magico"@it .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Abilità
+:Abilità rdf:type owl:Class ;
+         rdfs:comment "Una capacità straordinaria concessa da una classe"@it ;
+         rdfs:label "Abilità"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Campagna
+:Campagna rdf:type owl:Class ;
+          rdfs:comment "Una serie di sessioni di gioco"@it ;
+          rdfs:label "Campagna"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Classe
+:Classe rdf:type owl:Class ;
+        rdfs:comment "La professione di un personaggio"@it ;
+        rdfs:label "Classe"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Creatura
+:Creatura rdf:type owl:Class ;
+          rdfs:comment "Entità fisica"@it ;
+          rdfs:label "Creatura"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Equipaggiamento
+:Equipaggiamento rdf:type owl:Class ;
+                 rdfs:subClassOf :Oggetto ;
+                 rdfs:comment "Un oggetto equipaggiabile/indossabile"@it ;
+                 rdfs:label "Equipaggiamento"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Equipaggiamento_magico
+:Equipaggiamento_magico rdf:type owl:Class ;
+                        owl:equivalentClass [ owl:intersectionOf ( :Equipaggiamento
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty :èMagico ;
+                                                                     owl:hasValue "true"^^xsd:boolean
+                                                                   ]
+                                                                 ) ;
+                                              rdf:type owl:Class
+                                            ] ;
+                        rdfs:subClassOf :Equipaggiamento ,
+                                        :Oggetto_magico ;
+                        rdfs:comment "Un oggetto equipaggiabile/indossabile con proprietà magiche"@it ;
+                        rdfs:label "Equipaggiamento magico"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Evento
+:Evento rdf:type owl:Class ;
+        owl:equivalentClass <https://schema.org/Event> ;
+        rdfs:subClassOf <https://schema.org/Thing> ;
+        rdfs:comment "Un avvenimento rilevante di una campagna"@it ;
+        rdfs:label "Evento"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Giocatore
+:Giocatore rdf:type owl:Class ;
+           owl:equivalentClass <http://xmlns.com/foaf/0.1/Person> ;
+           rdfs:subClassOf <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ,
+                           <http://xmlns.com/foaf/0.1/Agent> ;
+           rdfs:comment "Una persona che gioca ad un gioco di ruolo"@it ;
+           rdfs:label "Giocatore"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incantatore
+:Incantatore rdf:type owl:Class ;
+             owl:equivalentClass [ rdf:type owl:Class ;
+                                   owl:unionOf ( [ owl:intersectionOf ( :Classe
+                                                                        [ rdf:type owl:Restriction ;
+                                                                          owl:onProperty :concedeIncantesimiArcani ;
+                                                                          owl:hasValue "true"^^xsd:boolean
+                                                                        ]
+                                                                      ) ;
+                                                   rdf:type owl:Class
+                                                 ]
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :concedeIncantesimiDivini ;
+                                                   owl:hasValue "true"^^xsd:boolean
+                                                 ]
+                                               )
+                                 ] ;
+             rdfs:subClassOf :Classe ;
+             owl:disjointWith :Marziale ;
+             rdfs:comment "Una classe capace di utilizzare incantesimi"@it ;
+             rdfs:label "Incantatore"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#IncantatoreArcano
+:IncantatoreArcano rdf:type owl:Class ;
+                   owl:equivalentClass [ owl:intersectionOf ( :Incantatore
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty :concedeIncantesimiArcani ;
+                                                                owl:hasValue "true"^^xsd:boolean
+                                                              ]
+                                                            ) ;
+                                         rdf:type owl:Class
+                                       ] ;
+                   rdfs:subClassOf :Incantatore ;
+                   owl:disjointWith :Marziale ;
+                   rdfs:comment "Una classe capace di utilizzare incantesimi arcani"@it ;
+                   rdfs:label "Incantatore arcano"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#IncantatoreDivino
+:IncantatoreDivino rdf:type owl:Class ;
+                   owl:equivalentClass [ owl:intersectionOf ( :Incantatore
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty :concedeIncantesimiDivini ;
+                                                                owl:hasValue "true"^^xsd:boolean
+                                                              ]
+                                                            ) ;
+                                         rdf:type owl:Class
+                                       ] ;
+                   rdfs:subClassOf :Incantatore ;
+                   owl:disjointWith :Marziale ;
+                   rdfs:comment "Una classe capace di utilizzare incantesimi concessi da una divinità"@it ;
+                   rdfs:label "Incantatore divino"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incantesimo
+:Incantesimo rdf:type owl:Class ;
+             rdfs:comment "Capacità magica"@it ;
+             rdfs:label "Incantesimo"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incantesimo_arcano
+:Incantesimo_arcano rdf:type owl:Class ;
+                    rdfs:subClassOf :Incantesimo ;
+                    owl:disjointWith :Incantesimo_divino ;
+                    rdfs:comment "Capacità magica di natura arcana"@it ;
+                    rdfs:label "Incantesimo arcano"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incantesimo_divino
+:Incantesimo_divino rdf:type owl:Class ;
+                    rdfs:subClassOf :Incantesimo ;
+                    rdfs:comment "Incantesimo di natura divina"@it ;
+                    rdfs:label "Incantesimo divino"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incontro
+:Incontro rdf:type owl:Class ;
+          rdfs:subClassOf :Evento ,
+                          <https://schema.org/Event> ;
+          rdfs:comment "Un evento nel quale è avvenuto un combattimento"@it ;
+          rdfs:label "Scontro"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Marziale
+:Marziale rdf:type owl:Class ;
+          owl:equivalentClass [ owl:intersectionOf ( :Classe
+                                                     [ rdf:type owl:Class ;
+                                                       owl:complementOf :Incantatore
+                                                     ]
+                                                   ) ;
+                                rdf:type owl:Class
+                              ] ;
+          rdfs:subClassOf :Classe ;
+          rdfs:comment "Una classe senza capacità magiche, che si affida completamente alle capacità fisiche"@it ;
+          rdfs:label "Marziale"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Mostro
+:Mostro rdf:type owl:Class ;
+        rdfs:subClassOf :Creatura ;
+        rdfs:comment "Una creatura non giocabile da un giocatore"@it ;
+        rdfs:label "Mostro"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Oggetto
+:Oggetto rdf:type owl:Class ;
+         rdfs:comment "un oggetto"@it ;
+         rdfs:label "Oggetto"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Oggetto_magico
+:Oggetto_magico rdf:type owl:Class ;
+                owl:equivalentClass [ owl:intersectionOf ( :Oggetto
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :èMagico ;
+                                                             owl:hasValue "true"^^xsd:boolean
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] ;
+                rdfs:subClassOf :Oggetto ;
+                rdfs:label "Oggetto magico"@it ,
+                           "Un oggetto con proprietà magiche"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#PG
+:PG rdf:type owl:Class ;
+    owl:equivalentClass [ owl:intersectionOf ( :Personaggio
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :haClasse ;
+                                                 owl:someValuesFrom :Classe
+                                               ]
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :haGiocatore ;
+                                                 owl:someValuesFrom :Giocatore
+                                               ]
+                                             ) ;
+                          rdf:type owl:Class
+                        ] ;
+    rdfs:subClassOf :Personaggio ;
+    rdfs:comment "Un personaggio associato ad un giocatore"@it ;
+    rdfs:label "Personaggio giocante"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#ParticipantRole
+:ParticipantRole rdf:type owl:Class ;
+                 rdfs:comment "Una \"istanza\" di una creatura relativa ad un evento"@it ;
+                 rdfs:label "Partecipante"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Personaggio
+:Personaggio rdf:type owl:Class ;
+             rdfs:subClassOf :Creatura ;
+             rdfs:comment "Una creatura possibilmente giocabile da un giocatore"@it ;
+             rdfs:label "Personaggio"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Razza
+:Razza rdf:type owl:Class ;
+       rdfs:comment "Razza di una creatura"@it ;
+       rdfs:label "Razza"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Role
+:Role rdf:type owl:Class ;
+      owl:equivalentClass [ rdf:type owl:Class ;
+                            owl:oneOf ( :Alleato
+                                        :Nemico
+                                      )
+                          ] ;
+      rdfs:comment "Ruolo di una creatura rispetto ad un evento"@it ;
+      rdfs:label "Ruolo"@it .
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing
+<http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> rdf:type owl:Class .
+
+
+###  http://xmlns.com/foaf/0.1/Agent
+<http://xmlns.com/foaf/0.1/Agent> rdf:type owl:Class .
+
+
+###  http://xmlns.com/foaf/0.1/Person
+<http://xmlns.com/foaf/0.1/Person> rdf:type owl:Class ;
+                                   rdfs:subClassOf <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ,
+                                                   <http://xmlns.com/foaf/0.1/Agent> ;
+                                   rdfs:comment "A person." ;
+                                   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/> ;
+                                   rdfs:label "Person" ;
+                                   <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
+
+
+###  https://schema.org/Event
+<https://schema.org/Event> rdf:type owl:Class ;
+                           rdfs:subClassOf <https://schema.org/Thing> ;
+                           rdfs:comment "An event happening at a certain time and location, such as a concert, lecture, or festival. Ticketing information may be added via the <a class=\"localLink\" href=\"/offers\">offers</a> property. Repeated events may be structured as separate Event objects."@en ;
+                           rdfs:isDefinedBy <https://schema.org/Event> ;
+                           rdfs:label "Event"@en .
+
+
+###  https://schema.org/Thing
+<https://schema.org/Thing> rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Alleato
+:Alleato rdf:type owl:NamedIndividual ,
+                  :Role ;
+         rdfs:comment "Entità amichevole rispetto i giocatori"@it ;
+         rdfs:label "Alleato"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Andrea
+:Andrea rdf:type owl:NamedIndividual ,
+                 :Giocatore ,
+                 <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ,
+                 <http://xmlns.com/foaf/0.1/Agent> ,
+                 <http://xmlns.com/foaf/0.1/Person> ;
+        rdfs:comment "Giocatore di nome Andrea"@it ;
+        rdfs:label "Andrea"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Anello_di_protezione_1
+:Anello_di_protezione_1 rdf:type owl:NamedIndividual ,
+                                 :Equipaggiamento ,
+                                 :Equipaggiamento_magico ,
+                                 :Oggetto ,
+                                 :Oggetto_magico ;
+                        :èMagico "true"^^xsd:boolean ;
+                        rdfs:comment "Anello magico, aumenta l'armatura di 1"@it ;
+                        rdfs:label "Anello di protezione 1"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Campagna_Esempio_1
+:Campagna_Esempio_1 rdf:type owl:NamedIndividual ,
+                             :Campagna ;
+                    :hasFirstEvent :Incontro_1 ;
+                    :hasLastEvent :Incontro_3 ;
+                    rdfs:comment "Campagna di pathfinder iniziata il 10/01/2025"@it ;
+                    rdfs:label "Destiny calls"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Chierico
+:Chierico rdf:type owl:NamedIndividual ,
+                   :Classe ,
+                   :Incantatore ,
+                   :IncantatoreDivino ;
+          :concedeIncantesimiDivini "true"^^xsd:boolean ;
+          rdfs:comment "Nella fede e nei miracoli del divino, molti trovano un maggior scopo. Chiamati per servire i poteri oltre la comprensione dei mortali, tutti i sacerdoti predicano le meraviglie del creato e provvedono ai bisogni spirituali dei loro fedeli. I chierici sono più che semplici sacerdoti, comunque; questi emissari del divino esaudiscono la volontà delle loro Divinità con la Forza delle Armi o con i poteri Magici loro concessi. Devoti ai principi delle religioni e delle filosofie che li ispirano, questi ecclesiastici cercano di spargere la conoscenza e l'influenza della loro fede. Tuttavia anche se potrebbe sembrare che condividano capacità simili, i chierici dimostrano di essere diversi l'uno dall'altro come gli Dei che servono: alcuni offrono redenzione e guarigione, altri portano legge e giustizia, e altri ancora seminano conflitto e corruzione. I modi dei chierici sono svariati, ma tutti coloro che seguono questa carriera lo fanno con gli alleati più forti ed imbracciano le Armi delle Divinità."@it ;
+          rdfs:label "Chierico"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Cura_ferite
+:Cura_ferite rdf:type owl:NamedIndividual ,
+                      :Incantesimo ,
+                      :Incantesimo_divino ;
+             :valoreLivelloIncantesimo 1 ,
+                                       1 ;
+             rdfs:comment "Appoggiando la mano su una creatura vivente, si infonde energia positiva che cura 1d8 danni +1 danno per livello dell'incantatore (massimo +5). Dal momento che i Non Morti sono animati da energia negativa, questo incantesimo infligge loro danni piuttosto che curare le loro ferite. Una creatura Non Morta può applicare la sua Resistenza agli Incantesimi, e tentare un Tiro Salvezza su Volontà per dimezzare i danni subiti."@it ;
+             rdfs:label "Cura ferite leggere"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Drago
+:Drago rdf:type owl:NamedIndividual ,
+                :Creatura ,
+                :Mostro ;
+       rdfs:comment "Una temibile corona di corna circonda la testa di questo possente drago e spesse scaglie rosso fuoco ne ricoprono il lungo corpo."@it ;
+       rdfs:label "Drago rosso giovane"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#DragonFight_Drago
+:DragonFight_Drago rdf:type owl:NamedIndividual ,
+                            :ParticipantRole ;
+                   :objectParticipating :Drago ;
+                   :participatingInEvent :Incontro_2 ;
+                   :roleOfParticipant :Nemico ;
+                   rdfs:comment "Drago rosso giovane presente nella \"Battaglia col drago\""@it ;
+                   rdfs:label "Drago rosso giovane (Battaglia col drago)"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#DragonFight_Viktor
+:DragonFight_Viktor rdf:type owl:NamedIndividual ,
+                             :ParticipantRole ;
+                    :objectParticipating :Viktor ;
+                    :participatingInEvent :Incontro_2 ;
+                    :roleOfParticipant :Alleato ;
+                    rdfs:comment "Viktor presente nella \"Battaglia col drago\""@it ;
+                    rdfs:label "VIktor (Battaglia col drago)"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Elfo
+:Elfo rdf:type owl:NamedIndividual ,
+               :Razza ;
+      rdfs:comment "I longevi Elfi sono i figli del mondo naturale, simili per alcuni versi alle creature fatate, e tuttavia differenti. Mentre i Folletti sono realmente legati alla flora e alla fauna delle loro case, vivendo in qualità di voci e guardiani quasi immortali delle terre selvagge, gli Elfi sono invece mortali in armonia con il mondo naturale che li circonda. Gli Elfi cercano di vivere in equilibrio con la natura e la comprendono meglio della maggior parte degli altri mortali. Parte di tale comprensione è mistica, ma altrettanta deriva dalla lunga durata della vita degli Elfi, che a sua volta dona loro una mentalità lungimirante. Gli Elfi possono aspettarsi di restare attivi nello stesso luogo per secoli. Per necessità, devono imparare a condurre stili di vita sostenibili e questo avviene più facilmente quando lavorano insieme alla natura, piuttosto che tentare di piegarla al loro volere."@it ;
+      rdfs:label "Elfo"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Henry
+:Henry rdf:type owl:NamedIndividual ,
+                :Creatura ,
+                :Personaggio ;
+       :conosceIncantesimo :Cura_ferite ;
+       :haClasse :Chierico ;
+       :haRazza :Umano ;
+       :valoreLivelloPersonaggio 3 ;
+       rdfs:comment "Chierico umano devoto ad Azathoth"@it ;
+       rdfs:label "Henry"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incontro_1
+:Incontro_1 rdf:type owl:NamedIndividual ,
+                     :Evento ,
+                     <https://schema.org/Event> ,
+                     <https://schema.org/Thing> ;
+            :appartieneCampagna :Campagna_Esempio_1 ;
+            :hasNextEvent :Incontro_2 ;
+            :dataEvento "2024-01-20T20:00:00"^^xsd:dateTime ;
+            rdfs:comment "Inizio della campagna, il party si incontra alla taverna"@it ;
+            rdfs:label "Incontro alla taverna"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incontro_2
+:Incontro_2 rdf:type owl:NamedIndividual ,
+                     :Evento ,
+                     :Incontro ,
+                     <https://schema.org/Event> ,
+                     <https://schema.org/Thing> ;
+            :appartieneCampagna :Campagna_Esempio_1 ;
+            :hasNextEvent :Incontro_3 ;
+            :hasPreviousEvent :Incontro_1 ;
+            :dataEvento "2024-01-27T20:00:00"^^xsd:dateTime ;
+            rdfs:comment "Una escalation un po' rapida, battaglia contro un drago dopo che il party si è conosciuto"@it ;
+            rdfs:label "Battaglia col drago"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incontro_3
+:Incontro_3 rdf:type owl:NamedIndividual ,
+                     :Evento ,
+                     :Incontro ,
+                     <https://schema.org/Event> ,
+                     <https://schema.org/Thing> ;
+            :appartieneCampagna :Campagna_Esempio_1 ;
+            :hasPreviousEvent :Incontro_2 ;
+            :dataEvento "2024-02-03T20:00:00"^^xsd:dateTime ;
+            rdfs:comment "Il party procede alla ricerca di un mercenario di nome Sayid Jarrah"@it ;
+            rdfs:label "Dov'è Sayid?"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Ladro
+:Ladro rdf:type owl:NamedIndividual ,
+                :Classe ,
+                :Marziale ;
+       :concedeIncantesimiArcani "false"^^xsd:boolean ;
+       :concedeIncantesimiDivini "false"^^xsd:boolean ;
+       rdfs:comment "La vita è un'avventura infinita per coloro che vivono del proprio ingegno. Sempre un passo avanti al pericolo, i Ladri sbarcano il lunario grazie ad astuzia, abilità e fascino per piegare il destino a loro favore. Non sapendo mai cosa aspettarsi, sono sempre pronti a tutto; essi diventano maestri di una vasta gamma di Abilità, si addestrano ad essere manipolatori esperti, acrobati agili, silenziosi inseguitori o cercano di padroneggiare altre professioni o capacità. Furfanti e giocatori d'azzardo, diplomatici e loquaci, banditi e cacciatori di taglie, esploratori ed investigatori, tutti potrebbero essere considerati dei Ladri, così come innumerevoli altri professionisti che contano sull'ingegno, il valore o la fortuna. Anche se molti Ladri preferiscono le città e le innumerevoli opportunità della civiltà, alcuni abbracciano la vita da strada, viaggiando lontano, incontrando molte genti ed affrontando incredibili pericoli nell'inseguire altrettanto incredibili ricchezze. Alla fine, chiunque desideri plasmare il proprio destino e la propria vita potrebbe essere chiamato Ladro."@it ;
+       rdfs:label "Ladro"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Libro_magico
+:Libro_magico rdf:type owl:NamedIndividual ,
+                       :Oggetto ,
+                       :Oggetto_magico ;
+              :èMagico "true"^^xsd:boolean ;
+              rdfs:comment """Questo blocco di fogli conta fino a 100 pagine piene di appunti scarabocchiati e schizzi frettolosi riguardanti vari mostri. Quando l'utilizzatore si concentra su una pagina specifica, il testo e le figure iniziano a muoversi, rivelando maggiori dettagli sulla creatura.
+
+L'utilizzatore deve trascorrere 10 minuti a studiare un particolare tipo di mostro per trarre beneficio dall'almanacco. Se è addestrato nell'abilità di Conoscenze pertinente per identificare un mostro, ottiene bonus di circostanza +2 alla prova. L'utilizzatore può effettuare una prova di Conoscenze per identificare una creatura malgrado non sia addestrato nell'abilità pertinente (senza però bonus 2) purché la CD non superi 15."""@it ;
+              rdfs:label "Almanacco dei mostri"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Mago
+:Mago rdf:type owl:NamedIndividual ,
+               :Classe ,
+               :Incantatore ,
+               :IncantatoreArcano ;
+      :concedeAbilità :Scrivere_pergamene ,
+                      :Supremazia_magica ;
+      :concedeIncantesimiArcani "true"^^xsd:boolean ;
+      rdfs:comment "Oltre il velo del mondo si nascondono i segreti del potere assoluto. Le azioni di esseri oltre la mortalità, le leggende dei regni dove gli déi e gli spiriti abitano, il sapere di creazioni meravigliose e terribili, tali misteri sono un richiamo per chi ha l'ambizione e l'intelletto per elevarsi sulla gente comune per afferrare la vera Forza. Questa è la via del Mago. Questi sagaci incantatori cercano, raccolgono e scoprono Conoscenze esoteriche, attingendo alle arti occulte per creare meraviglie oltre le capacità dei semplici mortali. Mentre alcuni potrebbero scegliere uno specifico campo di studi magici e padroneggiarne i poteri, altri abbracciano la versatilità, godendo delle meraviglie illimitate di tutta la magia. In entrambi i casi, i maghi si dimostrano abili e potenti, capaci di annientare i loro nemici, potenziare gli alleati e plasmare il mondo ai loro desideri."@it ;
+      rdfs:label "Mago"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Nemico
+:Nemico rdf:type owl:NamedIndividual ,
+                 :Role ;
+        rdfs:comment "Entità ostile rispetto i giocatori"@it ;
+        rdfs:label "Nemico"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Palla_di_fuoco
+:Palla_di_fuoco rdf:type owl:NamedIndividual ,
+                         :Incantesimo ,
+                         :Incantesimo_arcano ;
+                :valoreLivelloIncantesimo 3 ;
+                rdfs:comment """Un incantesimo Palla di Fuoco genera una sfera infuocata che esplode con un sordo boato e infligge 1d6 danni da fuoco per livello dell'incantatore (massimo 10d6) a tutte le creature presenti nell'area. Anche gli oggetti incustoditi subiscono questi danni. L'esplosione genera pochissima pressione.
+
+Si punta il dito per indicare il raggio di azione (la distanza e l'altezza) in cui la palla di fuoco deve esplodere. Una perla scintillante delle dimensioni di una biglia parte dal dito indice e, a meno che non si scontri con un corpo o con una barriera solida prima di aver raggiunto il punto d'impatto, cresce fino a diventare una Palla di Fuoco in quel punto. Un impatto prematuro dà luogo ad una detonazione anticipata. Se si tenta di far passare la sfera attraverso un passaggio stretto come una feritoia per frecce, bisogna “colpire” il passaggio con un attacco di contatto a distanza, altrimenti la sfera si scontra con la barriera ed esplode prematuramente.
+
+La Palla di Fuoco incendia eventuali materiali combustibili e danneggia gli oggetti presenti nell'area. Può fondere dei metalli a basso punto di fusione come il piombo, l'oro, il rame, l'argento o il bronzo. Se i danni causati a una barriera interposta hanno l'effetto di distruggerla o di frammentarla, la Palla di Fuoco può propagarsi oltre, se l'area lo permette, altrimenti si ferma contro la barriera come l'effetto di qualsiasi altro incantesimo."""@it ;
+                rdfs:label "Palla di fuoco"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Pugnale
+:Pugnale rdf:type owl:NamedIndividual ,
+                  :Equipaggiamento ,
+                  :Oggetto ;
+         rdfs:comment "Il pugnale è dotato di una lama lunga circa 30 cm e può essere ricurva o dritta, a taglio singolo o doppio. I pugnali hanno una vastissima gamma di fogge e possono avere vari nomi (per esempio un pugnale smussato viene chiamato \"dirk\"). Si ottiene bonus +2 alle prove di Rapidità di Mano per nascondersi addosso un pugnale."@it ;
+         rdfs:label "Pugnale"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Scrivere_pergamene
+:Scrivere_pergamene rdf:type owl:NamedIndividual ,
+                             :Abilità ;
+                    :livelloRichiestoAbilità 1 ,
+                                             1 ;
+                    rdfs:comment "Al 1° livello, un Mago ottiene Scrivere Pergamene come talento bonus."@it ;
+                    rdfs:label "Scrivere pergamene"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Scudo_magico
+:Scudo_magico rdf:type owl:NamedIndividual ,
+                       :Incantesimo ,
+                       :Incantesimo_arcano ;
+              :valoreLivelloIncantesimo 1 ;
+              rdfs:comment "Scudo crea un disco di forza Invisibile delle dimensioni di uno Scudo Torre, che vi fluttua davanti. Nega gli attacchi di Dardo Incantato diretti contro di voi. Inoltre, fornisce Bonus di Scudo +4 alla CA, che si applica anche agli attacchi di contatto Incorporei, poiché è un effetto di forza. Lo scudo non ha penalità di armatura alla prova né probabilità di fallimento degli incantesimi arcani."@it ;
+              rdfs:label "Scudo(Incantesimo)"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Supremazia_magica
+:Supremazia_magica rdf:type owl:NamedIndividual ,
+                            :Abilità ;
+                   :livelloRichiestoAbilità 20 ;
+                   rdfs:comment "Al 20° livello, Il mago apprende come convertire la sua Scorta Arcana in incantesimi e viceversa. Può lanciare qualsiasi incantesimo abbia preparato spendendo un numero di punti della sua Scorta Arcana pari a 1 + il livello dell'incantesimo per farlo anziché uno slot incantesimo. Quando lancia un incantesimo in questo modo, considera il suo livello dell'incantatore come se fosse più alto di 2 rispetto al normale e la CD di qualsiasi Tiro Salvezza associato all'incantesimo aumenta di 2. Non può spendere ulteriori punti dalla sua Scorta Arcana per potenziare il lancio di un incantesimo in questo modo."@it ;
+                   rdfs:label "Supremazia magica"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Umano
+:Umano rdf:type owl:NamedIndividual ,
+                :Razza ;
+       rdfs:comment "Gli umani possiedono un'eccezionale spinta e una grande capacità di resistere ed espandersi, e pertanto sono attualmente la razza dominante nel mondo. I loro imperi e nazioni sono ampi e in espansione e i cittadini di queste società scolpiscono i loro nomi con la forza delle armi e il potere dei loro incantesimi. L'umanità è meglio caratterizzata dalla sua turbolenza e diversità e le culture umano vanno dalle tribù selvagge, dai rigidi codici d'onore, alle famiglie nobili decadenti. La curiosità e l'ambizione umane trionfano spesso sulla predilezione per uno stile di vita sedentario e molti lasciano le loro case per esplorare i numerosi angoli dimenticati del mondo o per condurre potenti eserciti per conquistare i vicini, semplicemente perché possono."@it ;
+       rdfs:label "Umano"@it .
+
+
+###  http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Viktor
+:Viktor rdf:type owl:NamedIndividual ,
+                 :Creatura ,
+                 :PG ,
+                 :Personaggio ;
+        :conosceIncantesimo :Palla_di_fuoco ,
+                            :Scudo_magico ;
+        :haAbilità :Scrivere_pergamene ;
+        :haClasse :Mago ;
+        :haGiocatore :Andrea ;
+        :haRazza :Elfo ;
+        :possiede :Anello_di_protezione_1 ,
+                  :Pugnale ;
+        :valoreLivelloPersonaggio 5 ;
+        rdfs:comment "Elfo mago specializzato in necromanzia"@it ;
+        rdfs:label "Viktor"@it .
+
+
+#################################################################
+#    Rules
+#################################################################
+
+<urn:swrl:var#p> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl:var#c> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl:var#a> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl:var#plv> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl:var#alv> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl:var#i> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl:var#ilv> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Personaggio ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#p>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> :Classe ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#c>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#classPredicate> :Abilità ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a>
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :haClasse ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#p> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#c>
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> :concedeAbilità ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#c> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#a>
+                                                                                                 ] ;
+                                                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#propertyPredicate> :valoreLivelloPersonaggio ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#p> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#plv>
+                                                                                                            ] ;
+                                                                                                  rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                             rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#propertyPredicate> :livelloRichiestoAbilità ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#alv>
+                                                                                                                       ] ;
+                                                                                                             rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                        rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#arguments> ( <urn:swrl:var#alv>
+                                                                                                                                                                                 <urn:swrl:var#plv>
+                                                                                                                                                                               )
+                                                                                                                                  ] ;
+                                                                                                                        rdf:rest rdf:nil
+                                                                                                                      ]
+                                                                                                           ]
+                                                                                                ]
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :haAbilità ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#p> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#a>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Personaggio ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#p>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> :Classe ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#c>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#classPredicate> :Incantesimo_arcano ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#i>
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :haClasse ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#p> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#c>
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> :concedeIncantesimiArcani ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#c> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                                                                 ] ;
+                                                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#propertyPredicate> :valoreLivelloPersonaggio ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#p> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#plv>
+                                                                                                            ] ;
+                                                                                                  rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                             rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#propertyPredicate> :valoreLivelloIncantesimo ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#i> ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#ilv>
+                                                                                                                       ] ;
+                                                                                                             rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                        rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#arguments> ( <urn:swrl:var#ilv>
+                                                                                                                                                                                 <urn:swrl:var#plv>
+                                                                                                                                                                               )
+                                                                                                                                  ] ;
+                                                                                                                        rdf:rest rdf:nil
+                                                                                                                      ]
+                                                                                                           ]
+                                                                                                ]
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :conosceIncantesimo ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#p> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#i>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Personaggio ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#p>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> :Classe ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#c>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#classPredicate> :Incantesimo_divino ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#i>
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :haClasse ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#p> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#c>
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> :concedeIncantesimiDivini ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#c> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                                                                 ] ;
+                                                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#propertyPredicate> :valoreLivelloPersonaggio ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#p> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#plv>
+                                                                                                            ] ;
+                                                                                                  rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                             rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#propertyPredicate> :valoreLivelloIncantesimo ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#i> ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#ilv>
+                                                                                                                       ] ;
+                                                                                                             rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                        rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#arguments> ( <urn:swrl:var#ilv>
+                                                                                                                                                                                 <urn:swrl:var#plv>
+                                                                                                                                                                               )
+                                                                                                                                  ] ;
+                                                                                                                        rdf:rest rdf:nil
+                                                                                                                      ]
+                                                                                                           ]
+                                                                                                ]
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :conosceIncantesimo ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#p> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#i>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

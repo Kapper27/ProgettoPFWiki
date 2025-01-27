@@ -1,0 +1,1483 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#"
+     xml:base="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:PFWiki="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki">
+        <dc:creator>Andrea Pandolfi</dc:creator>
+        <dc:date>2025-01-26</dc:date>
+        <dc:description xml:lang="it">Un&apos;ontologia per rappresentare il gioco di ruolo Pathfinder, le campagne basate su questo set di regole e gli eventi di quest&apos;ultime.</dc:description>
+        <dc:title xml:lang="en">Pathfinder Wiki Ontology</dc:title>
+        <vann:preferredNamespacePrefix>http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#</vann:preferredNamespacePrefix>
+        <vann:preferredNamespacePrefix>pfwiki</vann:preferredNamespacePrefix>
+        <rdfs:label xml:lang="en">PFWiki</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/date -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/date"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
+    
+
+
+    <!-- http://www.w3.org/2003/06/sw-vocab-status/ns#term_status -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2003/06/sw-vocab-status/ns#term_status"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#appartieneCampagna -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#appartieneCampagna">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Evento"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Campagna"/>
+        <rdfs:comment xml:lang="it">Rappresenta l&apos;appartenenza di un evento ad una determinata campagna</rdfs:comment>
+        <rdfs:label xml:lang="it">Appartiene alla campagna</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#concedeAbilità -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#concedeAbilità">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Classe"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Abilità"/>
+        <rdfs:comment xml:lang="it">Rappresenta il fatto che una determinata abilità viene concessa da una determinata classe</rdfs:comment>
+        <rdfs:label xml:lang="it">Concede abilità</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#conosceIncantesimo -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#conosceIncantesimo">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Personaggio"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incantesimo"/>
+        <rdfs:comment xml:lang="it">Rappresenta la capacità di un personaggio di usare un determinato incantesimo</rdfs:comment>
+        <rdfs:label xml:lang="it">Conosce incantesimo</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#haAbilità -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#haAbilità">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Personaggio"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Abilità"/>
+        <rdfs:comment xml:lang="it">Rappresenta la capacità di un determinato personaggio di usare una determinata abilità</rdfs:comment>
+        <rdfs:label xml:lang="it">Ha abilità</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#haClasse -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#haClasse">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Personaggio"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Classe"/>
+        <rdfs:comment xml:lang="it">Rappresenta la classe di un determinato personaggio</rdfs:comment>
+        <rdfs:label xml:lang="it">Ha classe</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#haGiocatore -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#haGiocatore">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Personaggio"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Giocatore"/>
+        <rdfs:comment xml:lang="it">Rappresenta l&apos;appartenenza di un personaggio ad un deteminato giocatore</rdfs:comment>
+        <rdfs:label xml:lang="it">Ha giocatore</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#haRazza -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#haRazza">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Personaggio"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Razza"/>
+        <rdfs:comment xml:lang="it">Rappresenta la razza di un personaggio</rdfs:comment>
+        <rdfs:label xml:lang="it">Ha razza</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#hasFirstEvent -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#hasFirstEvent">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Campagna"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Evento"/>
+        <rdfs:comment xml:lang="it">Rappresenta il collegamento con il primo evento di una campagna</rdfs:comment>
+        <rdfs:label xml:lang="it">Primo evento</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#hasLastEvent -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#hasLastEvent">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Campagna"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Evento"/>
+        <rdfs:comment xml:lang="it">Rappresenta il collegamento con l&apos;ultimo evento di una campagna</rdfs:comment>
+        <rdfs:label xml:lang="it">Ultimo evento</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#hasNextEvent -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#hasNextEvent">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#hasPreviousEvent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Evento"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Evento"/>
+        <rdfs:comment xml:lang="it">Rappresenta il collegamento tra un evento e il suo successore nella lista di eventi</rdfs:comment>
+        <rdfs:label xml:lang="it">Evento successivo</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#hasPreviousEvent -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#hasPreviousEvent">
+        <rdfs:comment xml:lang="it">Rappresenta il collegamento tra un evento e il suo predecessore nella lista di eventi</rdfs:comment>
+        <rdfs:label xml:lang="it">Evento precedente</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#objectParticipating -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#objectParticipating">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#ParticipantRole"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Creatura"/>
+        <rdfs:comment xml:lang="it">Rappresenta il collegamento tra una creatura ed una sua &quot;istanza&quot; in un evento</rdfs:comment>
+        <rdfs:label xml:lang="it">Creatura partecipante</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#participatingInEvent -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#participatingInEvent">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#ParticipantRole"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incontro"/>
+        <rdfs:comment xml:lang="it">Collegamento tra l&apos;istanza di una creatura e uno scontro</rdfs:comment>
+        <rdfs:label xml:lang="it">Partecipa allo scontro</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#possiede -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#possiede">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Creatura"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Oggetto"/>
+        <rdfs:comment xml:lang="it">Rappresenta il fatto che una determinata creatura possiede un determinato oggetto</rdfs:comment>
+        <rdfs:label xml:lang="it">Possiede oggetto</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#roleOfParticipant -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#roleOfParticipant">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#ParticipantRole"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Role"/>
+        <rdfs:comment xml:lang="it">Rappresenta il ruolo di un partecipante rispetto ad uno scontro</rdfs:comment>
+        <rdfs:label xml:lang="it">Ruolo del partecipante</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#concedeIncantesimiArcani -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#concedeIncantesimiArcani">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Classe"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment xml:lang="it">Stabilisce se la classe concede o meno incantesimi arcani</rdfs:comment>
+        <rdfs:label xml:lang="it">Concede incantesimi arcani</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#concedeIncantesimiDivini -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#concedeIncantesimiDivini">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Classe"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment xml:lang="it">Stabilisce se la classe concede o meno incantesimi divini</rdfs:comment>
+        <rdfs:label xml:lang="it">Concede incantesimi divini</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#dataEvento -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#dataEvento">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Evento"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment xml:lang="it">Rappresenta la data di un evento</rdfs:comment>
+        <rdfs:label xml:lang="it">Data evento</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#livelloRichiestoAbilità -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#livelloRichiestoAbilità">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Abilità"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment xml:lang="it">Stabilisce il livello richiesto per ottenere una determinata abilità</rdfs:comment>
+        <rdfs:label xml:lang="it">Livello richiesto abilità</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#valoreLivelloIncantesimo -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#valoreLivelloIncantesimo">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incantesimo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment xml:lang="it">Stabilisce il livello richiesto per ottenere l&apos;incantesimo</rdfs:comment>
+        <rdfs:label xml:lang="it">Livello richiesto incantesimo</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#valoreLivelloPersonaggio -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#valoreLivelloPersonaggio">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Personaggio"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment xml:lang="it">Stabilisce il livello del personaggio</rdfs:comment>
+        <rdfs:label xml:lang="it">Livello personaggio</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#èMagico -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#èMagico">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Oggetto"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment xml:lang="it">Stabilisce se l&apos;oggetto ha proprietà magiche</rdfs:comment>
+        <rdfs:label xml:lang="it">È magico</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Abilità -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Abilità">
+        <rdfs:comment xml:lang="it">Una capacità straordinaria concessa da una classe</rdfs:comment>
+        <rdfs:label xml:lang="it">Abilità</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Campagna -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Campagna">
+        <rdfs:comment xml:lang="it">Una serie di sessioni di gioco</rdfs:comment>
+        <rdfs:label xml:lang="it">Campagna</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Classe -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Classe">
+        <rdfs:comment xml:lang="it">La professione di un personaggio</rdfs:comment>
+        <rdfs:label xml:lang="it">Classe</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Creatura -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Creatura">
+        <rdfs:comment xml:lang="it">Entità fisica</rdfs:comment>
+        <rdfs:label xml:lang="it">Creatura</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Equipaggiamento -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Equipaggiamento">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Oggetto"/>
+        <rdfs:comment xml:lang="it">Un oggetto equipaggiabile/indossabile</rdfs:comment>
+        <rdfs:label xml:lang="it">Equipaggiamento</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Equipaggiamento_magico -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Equipaggiamento_magico">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Equipaggiamento"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#èMagico"/>
+                        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasValue>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Equipaggiamento"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Oggetto_magico"/>
+        <rdfs:comment xml:lang="it">Un oggetto equipaggiabile/indossabile con proprietà magiche</rdfs:comment>
+        <rdfs:label xml:lang="it">Equipaggiamento magico</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Evento -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Evento">
+        <owl:equivalentClass rdf:resource="https://schema.org/Event"/>
+        <rdfs:subClassOf rdf:resource="https://schema.org/Thing"/>
+        <rdfs:comment xml:lang="it">Un avvenimento rilevante di una campagna</rdfs:comment>
+        <rdfs:label xml:lang="it">Evento</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Giocatore -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Giocatore">
+        <owl:equivalentClass rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:comment xml:lang="it">Una persona che gioca ad un gioco di ruolo</rdfs:comment>
+        <rdfs:label xml:lang="it">Giocatore</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incantatore -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incantatore">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Classe"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#concedeIncantesimiArcani"/>
+                                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasValue>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#concedeIncantesimiDivini"/>
+                        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasValue>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Classe"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Marziale"/>
+        <rdfs:comment xml:lang="it">Una classe capace di utilizzare incantesimi</rdfs:comment>
+        <rdfs:label xml:lang="it">Incantatore</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#IncantatoreArcano -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#IncantatoreArcano">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incantatore"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#concedeIncantesimiArcani"/>
+                        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasValue>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incantatore"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Marziale"/>
+        <rdfs:comment xml:lang="it">Una classe capace di utilizzare incantesimi arcani</rdfs:comment>
+        <rdfs:label xml:lang="it">Incantatore arcano</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#IncantatoreDivino -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#IncantatoreDivino">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incantatore"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#concedeIncantesimiDivini"/>
+                        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasValue>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incantatore"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Marziale"/>
+        <rdfs:comment xml:lang="it">Una classe capace di utilizzare incantesimi concessi da una divinità</rdfs:comment>
+        <rdfs:label xml:lang="it">Incantatore divino</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incantesimo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incantesimo">
+        <rdfs:comment xml:lang="it">Capacità magica</rdfs:comment>
+        <rdfs:label xml:lang="it">Incantesimo</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incantesimo_arcano -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incantesimo_arcano">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incantesimo"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incantesimo_divino"/>
+        <rdfs:comment xml:lang="it">Capacità magica di natura arcana</rdfs:comment>
+        <rdfs:label xml:lang="it">Incantesimo arcano</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incantesimo_divino -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incantesimo_divino">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incantesimo"/>
+        <rdfs:comment xml:lang="it">Incantesimo di natura divina</rdfs:comment>
+        <rdfs:label xml:lang="it">Incantesimo divino</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incontro -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incontro">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Evento"/>
+        <rdfs:subClassOf rdf:resource="https://schema.org/Event"/>
+        <rdfs:comment xml:lang="it">Un evento nel quale è avvenuto un combattimento</rdfs:comment>
+        <rdfs:label xml:lang="it">Scontro</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Marziale -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Marziale">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Classe"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incantatore"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Classe"/>
+        <rdfs:comment xml:lang="it">Una classe senza capacità magiche, che si affida completamente alle capacità fisiche</rdfs:comment>
+        <rdfs:label xml:lang="it">Marziale</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Mostro -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Mostro">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Creatura"/>
+        <rdfs:comment xml:lang="it">Una creatura non giocabile da un giocatore</rdfs:comment>
+        <rdfs:label xml:lang="it">Mostro</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Oggetto -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Oggetto">
+        <rdfs:comment xml:lang="it">un oggetto</rdfs:comment>
+        <rdfs:label xml:lang="it">Oggetto</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Oggetto_magico -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Oggetto_magico">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Oggetto"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#èMagico"/>
+                        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasValue>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Oggetto"/>
+        <rdfs:label xml:lang="it">Oggetto magico</rdfs:label>
+        <rdfs:label xml:lang="it">Un oggetto con proprietà magiche</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#PG -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#PG">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Personaggio"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#haClasse"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Classe"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#haGiocatore"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Giocatore"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Personaggio"/>
+        <rdfs:comment xml:lang="it">Un personaggio associato ad un giocatore</rdfs:comment>
+        <rdfs:label xml:lang="it">Personaggio giocante</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#ParticipantRole -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#ParticipantRole">
+        <rdfs:comment xml:lang="it">Una &quot;istanza&quot; di una creatura relativa ad un evento</rdfs:comment>
+        <rdfs:label xml:lang="it">Partecipante</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Personaggio -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Personaggio">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Creatura"/>
+        <rdfs:comment xml:lang="it">Una creatura possibilmente giocabile da un giocatore</rdfs:comment>
+        <rdfs:label xml:lang="it">Personaggio</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Razza -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Razza">
+        <rdfs:comment xml:lang="it">Razza di una creatura</rdfs:comment>
+        <rdfs:label xml:lang="it">Razza</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Role -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Role">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Alleato"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Nemico"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="it">Ruolo di una creatura rispetto ad un evento</rdfs:comment>
+        <rdfs:label xml:lang="it">Ruolo</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing -->
+
+    <owl:Class rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Agent -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:comment>A person.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://xmlns.com/foaf/0.1/"/>
+        <rdfs:label>Person</rdfs:label>
+        <ns:term_status>stable</ns:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://schema.org/Event -->
+
+    <owl:Class rdf:about="https://schema.org/Event">
+        <rdfs:subClassOf rdf:resource="https://schema.org/Thing"/>
+        <rdfs:comment xml:lang="en">An event happening at a certain time and location, such as a concert, lecture, or festival. Ticketing information may be added via the &lt;a class=&quot;localLink&quot; href=&quot;/offers&quot;&gt;offers&lt;/a&gt; property. Repeated events may be structured as separate Event objects.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://schema.org/Event"/>
+        <rdfs:label xml:lang="en">Event</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://schema.org/Thing -->
+
+    <owl:Class rdf:about="https://schema.org/Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Alleato -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Alleato">
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Role"/>
+        <rdfs:comment xml:lang="it">Entità amichevole rispetto i giocatori</rdfs:comment>
+        <rdfs:label xml:lang="it">Alleato</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Andrea -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Andrea">
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Giocatore"/>
+        <rdf:type rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:comment xml:lang="it">Giocatore di nome Andrea</rdfs:comment>
+        <rdfs:label xml:lang="it">Andrea</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Anello_di_protezione_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Anello_di_protezione_1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Equipaggiamento"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Equipaggiamento_magico"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Oggetto"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Oggetto_magico"/>
+        <èMagico rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</èMagico>
+        <rdfs:comment xml:lang="it">Anello magico, aumenta l&apos;armatura di 1</rdfs:comment>
+        <rdfs:label xml:lang="it">Anello di protezione 1</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Campagna_Esempio_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Campagna_Esempio_1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Campagna"/>
+        <hasFirstEvent rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incontro_1"/>
+        <hasLastEvent rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incontro_3"/>
+        <rdfs:comment xml:lang="it">Campagna di pathfinder iniziata il 10/01/2025</rdfs:comment>
+        <rdfs:label xml:lang="it">Destiny calls</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Chierico -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Chierico">
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Classe"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incantatore"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#IncantatoreDivino"/>
+        <concedeIncantesimiDivini rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</concedeIncantesimiDivini>
+        <rdfs:comment xml:lang="it">Nella fede e nei miracoli del divino, molti trovano un maggior scopo. Chiamati per servire i poteri oltre la comprensione dei mortali, tutti i sacerdoti predicano le meraviglie del creato e provvedono ai bisogni spirituali dei loro fedeli. I chierici sono più che semplici sacerdoti, comunque; questi emissari del divino esaudiscono la volontà delle loro Divinità con la Forza delle Armi o con i poteri Magici loro concessi. Devoti ai principi delle religioni e delle filosofie che li ispirano, questi ecclesiastici cercano di spargere la conoscenza e l&apos;influenza della loro fede. Tuttavia anche se potrebbe sembrare che condividano capacità simili, i chierici dimostrano di essere diversi l&apos;uno dall&apos;altro come gli Dei che servono: alcuni offrono redenzione e guarigione, altri portano legge e giustizia, e altri ancora seminano conflitto e corruzione. I modi dei chierici sono svariati, ma tutti coloro che seguono questa carriera lo fanno con gli alleati più forti ed imbracciano le Armi delle Divinità.</rdfs:comment>
+        <rdfs:label xml:lang="it">Chierico</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Cura_ferite -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Cura_ferite">
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incantesimo"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incantesimo_divino"/>
+        <valoreLivelloIncantesimo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</valoreLivelloIncantesimo>
+        <valoreLivelloIncantesimo rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</valoreLivelloIncantesimo>
+        <rdfs:comment xml:lang="it">Appoggiando la mano su una creatura vivente, si infonde energia positiva che cura 1d8 danni +1 danno per livello dell&apos;incantatore (massimo +5). Dal momento che i Non Morti sono animati da energia negativa, questo incantesimo infligge loro danni piuttosto che curare le loro ferite. Una creatura Non Morta può applicare la sua Resistenza agli Incantesimi, e tentare un Tiro Salvezza su Volontà per dimezzare i danni subiti.</rdfs:comment>
+        <rdfs:label xml:lang="it">Cura ferite leggere</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Drago -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Drago">
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Creatura"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Mostro"/>
+        <rdfs:comment xml:lang="it">Una temibile corona di corna circonda la testa di questo possente drago e spesse scaglie rosso fuoco ne ricoprono il lungo corpo.</rdfs:comment>
+        <rdfs:label xml:lang="it">Drago rosso giovane</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#DragonFight_Drago -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#DragonFight_Drago">
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#ParticipantRole"/>
+        <objectParticipating rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Drago"/>
+        <participatingInEvent rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incontro_2"/>
+        <roleOfParticipant rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Nemico"/>
+        <rdfs:comment xml:lang="it">Drago rosso giovane presente nella &quot;Battaglia col drago&quot;</rdfs:comment>
+        <rdfs:label xml:lang="it">Drago rosso giovane (Battaglia col drago)</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#DragonFight_Viktor -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#DragonFight_Viktor">
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#ParticipantRole"/>
+        <objectParticipating rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Viktor"/>
+        <participatingInEvent rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incontro_2"/>
+        <roleOfParticipant rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Alleato"/>
+        <rdfs:comment xml:lang="it">Viktor presente nella &quot;Battaglia col drago&quot;</rdfs:comment>
+        <rdfs:label xml:lang="it">VIktor (Battaglia col drago)</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Elfo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Elfo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Razza"/>
+        <rdfs:comment xml:lang="it">I longevi Elfi sono i figli del mondo naturale, simili per alcuni versi alle creature fatate, e tuttavia differenti. Mentre i Folletti sono realmente legati alla flora e alla fauna delle loro case, vivendo in qualità di voci e guardiani quasi immortali delle terre selvagge, gli Elfi sono invece mortali in armonia con il mondo naturale che li circonda. Gli Elfi cercano di vivere in equilibrio con la natura e la comprendono meglio della maggior parte degli altri mortali. Parte di tale comprensione è mistica, ma altrettanta deriva dalla lunga durata della vita degli Elfi, che a sua volta dona loro una mentalità lungimirante. Gli Elfi possono aspettarsi di restare attivi nello stesso luogo per secoli. Per necessità, devono imparare a condurre stili di vita sostenibili e questo avviene più facilmente quando lavorano insieme alla natura, piuttosto che tentare di piegarla al loro volere.</rdfs:comment>
+        <rdfs:label xml:lang="it">Elfo</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Henry -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Henry">
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Creatura"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Personaggio"/>
+        <haClasse rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Chierico"/>
+        <haRazza rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Umano"/>
+        <valoreLivelloPersonaggio rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</valoreLivelloPersonaggio>
+        <rdfs:comment xml:lang="it">Chierico umano devoto ad Azathoth</rdfs:comment>
+        <rdfs:label xml:lang="it">Henry</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incontro_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incontro_1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Evento"/>
+        <rdf:type rdf:resource="https://schema.org/Event"/>
+        <rdf:type rdf:resource="https://schema.org/Thing"/>
+        <appartieneCampagna rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Campagna_Esempio_1"/>
+        <hasNextEvent rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incontro_2"/>
+        <dataEvento rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-01-20T20:00:00</dataEvento>
+        <rdfs:comment xml:lang="it">Inizio della campagna, il party si incontra alla taverna</rdfs:comment>
+        <rdfs:label xml:lang="it">Incontro alla taverna</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incontro_2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incontro_2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Evento"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incontro"/>
+        <rdf:type rdf:resource="https://schema.org/Event"/>
+        <rdf:type rdf:resource="https://schema.org/Thing"/>
+        <appartieneCampagna rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Campagna_Esempio_1"/>
+        <hasNextEvent rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incontro_3"/>
+        <hasPreviousEvent rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incontro_1"/>
+        <dataEvento rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-01-27T20:00:00</dataEvento>
+        <rdfs:comment xml:lang="it">Una escalation un po&apos; rapida, battaglia contro un drago dopo che il party si è conosciuto</rdfs:comment>
+        <rdfs:label xml:lang="it">Battaglia col drago</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incontro_3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incontro_3">
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Evento"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incontro"/>
+        <rdf:type rdf:resource="https://schema.org/Event"/>
+        <rdf:type rdf:resource="https://schema.org/Thing"/>
+        <appartieneCampagna rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Campagna_Esempio_1"/>
+        <hasPreviousEvent rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incontro_2"/>
+        <dataEvento rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-02-03T20:00:00</dataEvento>
+        <rdfs:comment xml:lang="it">Il party procede alla ricerca di un mercenario di nome Sayid Jarrah</rdfs:comment>
+        <rdfs:label xml:lang="it">Dov&apos;è Sayid?</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Ladro -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Ladro">
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Classe"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Marziale"/>
+        <concedeIncantesimiArcani rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</concedeIncantesimiArcani>
+        <concedeIncantesimiDivini rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</concedeIncantesimiDivini>
+        <rdfs:comment xml:lang="it">La vita è un&apos;avventura infinita per coloro che vivono del proprio ingegno. Sempre un passo avanti al pericolo, i Ladri sbarcano il lunario grazie ad astuzia, abilità e fascino per piegare il destino a loro favore. Non sapendo mai cosa aspettarsi, sono sempre pronti a tutto; essi diventano maestri di una vasta gamma di Abilità, si addestrano ad essere manipolatori esperti, acrobati agili, silenziosi inseguitori o cercano di padroneggiare altre professioni o capacità. Furfanti e giocatori d&apos;azzardo, diplomatici e loquaci, banditi e cacciatori di taglie, esploratori ed investigatori, tutti potrebbero essere considerati dei Ladri, così come innumerevoli altri professionisti che contano sull&apos;ingegno, il valore o la fortuna. Anche se molti Ladri preferiscono le città e le innumerevoli opportunità della civiltà, alcuni abbracciano la vita da strada, viaggiando lontano, incontrando molte genti ed affrontando incredibili pericoli nell&apos;inseguire altrettanto incredibili ricchezze. Alla fine, chiunque desideri plasmare il proprio destino e la propria vita potrebbe essere chiamato Ladro.</rdfs:comment>
+        <rdfs:label xml:lang="it">Ladro</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Libro_magico -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Libro_magico">
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Oggetto"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Oggetto_magico"/>
+        <èMagico rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</èMagico>
+        <rdfs:comment xml:lang="it">Questo blocco di fogli conta fino a 100 pagine piene di appunti scarabocchiati e schizzi frettolosi riguardanti vari mostri. Quando l&apos;utilizzatore si concentra su una pagina specifica, il testo e le figure iniziano a muoversi, rivelando maggiori dettagli sulla creatura.
+
+L&apos;utilizzatore deve trascorrere 10 minuti a studiare un particolare tipo di mostro per trarre beneficio dall&apos;almanacco. Se è addestrato nell&apos;abilità di Conoscenze pertinente per identificare un mostro, ottiene bonus di circostanza +2 alla prova. L&apos;utilizzatore può effettuare una prova di Conoscenze per identificare una creatura malgrado non sia addestrato nell&apos;abilità pertinente (senza però bonus 2) purché la CD non superi 15.</rdfs:comment>
+        <rdfs:label xml:lang="it">Almanacco dei mostri</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Mago -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Mago">
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Classe"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incantatore"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#IncantatoreArcano"/>
+        <concedeAbilità rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Scrivere_pergamene"/>
+        <concedeAbilità rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Supremazia_magica"/>
+        <concedeIncantesimiArcani rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</concedeIncantesimiArcani>
+        <rdfs:comment xml:lang="it">Oltre il velo del mondo si nascondono i segreti del potere assoluto. Le azioni di esseri oltre la mortalità, le leggende dei regni dove gli déi e gli spiriti abitano, il sapere di creazioni meravigliose e terribili, tali misteri sono un richiamo per chi ha l&apos;ambizione e l&apos;intelletto per elevarsi sulla gente comune per afferrare la vera Forza. Questa è la via del Mago. Questi sagaci incantatori cercano, raccolgono e scoprono Conoscenze esoteriche, attingendo alle arti occulte per creare meraviglie oltre le capacità dei semplici mortali. Mentre alcuni potrebbero scegliere uno specifico campo di studi magici e padroneggiarne i poteri, altri abbracciano la versatilità, godendo delle meraviglie illimitate di tutta la magia. In entrambi i casi, i maghi si dimostrano abili e potenti, capaci di annientare i loro nemici, potenziare gli alleati e plasmare il mondo ai loro desideri.</rdfs:comment>
+        <rdfs:label xml:lang="it">Mago</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Nemico -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Nemico">
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Role"/>
+        <rdfs:comment xml:lang="it">Entità ostile rispetto i giocatori</rdfs:comment>
+        <rdfs:label xml:lang="it">Nemico</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Palla_di_fuoco -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Palla_di_fuoco">
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incantesimo"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incantesimo_arcano"/>
+        <valoreLivelloIncantesimo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</valoreLivelloIncantesimo>
+        <rdfs:comment xml:lang="it">Un incantesimo Palla di Fuoco genera una sfera infuocata che esplode con un sordo boato e infligge 1d6 danni da fuoco per livello dell&apos;incantatore (massimo 10d6) a tutte le creature presenti nell&apos;area. Anche gli oggetti incustoditi subiscono questi danni. L&apos;esplosione genera pochissima pressione.
+
+Si punta il dito per indicare il raggio di azione (la distanza e l&apos;altezza) in cui la palla di fuoco deve esplodere. Una perla scintillante delle dimensioni di una biglia parte dal dito indice e, a meno che non si scontri con un corpo o con una barriera solida prima di aver raggiunto il punto d&apos;impatto, cresce fino a diventare una Palla di Fuoco in quel punto. Un impatto prematuro dà luogo ad una detonazione anticipata. Se si tenta di far passare la sfera attraverso un passaggio stretto come una feritoia per frecce, bisogna “colpire” il passaggio con un attacco di contatto a distanza, altrimenti la sfera si scontra con la barriera ed esplode prematuramente.
+
+La Palla di Fuoco incendia eventuali materiali combustibili e danneggia gli oggetti presenti nell&apos;area. Può fondere dei metalli a basso punto di fusione come il piombo, l&apos;oro, il rame, l&apos;argento o il bronzo. Se i danni causati a una barriera interposta hanno l&apos;effetto di distruggerla o di frammentarla, la Palla di Fuoco può propagarsi oltre, se l&apos;area lo permette, altrimenti si ferma contro la barriera come l&apos;effetto di qualsiasi altro incantesimo.</rdfs:comment>
+        <rdfs:label xml:lang="it">Palla di fuoco</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Pugnale -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Pugnale">
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Equipaggiamento"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Oggetto"/>
+        <rdfs:comment xml:lang="it">Il pugnale è dotato di una lama lunga circa 30 cm e può essere ricurva o dritta, a taglio singolo o doppio. I pugnali hanno una vastissima gamma di fogge e possono avere vari nomi (per esempio un pugnale smussato viene chiamato &quot;dirk&quot;). Si ottiene bonus +2 alle prove di Rapidità di Mano per nascondersi addosso un pugnale.</rdfs:comment>
+        <rdfs:label xml:lang="it">Pugnale</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Scrivere_pergamene -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Scrivere_pergamene">
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Abilità"/>
+        <livelloRichiestoAbilità rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</livelloRichiestoAbilità>
+        <livelloRichiestoAbilità rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</livelloRichiestoAbilità>
+        <rdfs:comment xml:lang="it">Al 1° livello, un Mago ottiene Scrivere Pergamene come talento bonus.</rdfs:comment>
+        <rdfs:label xml:lang="it">Scrivere pergamene</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Scudo_magico -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Scudo_magico">
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incantesimo"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incantesimo_arcano"/>
+        <valoreLivelloIncantesimo rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</valoreLivelloIncantesimo>
+        <rdfs:comment xml:lang="it">Scudo crea un disco di forza Invisibile delle dimensioni di uno Scudo Torre, che vi fluttua davanti. Nega gli attacchi di Dardo Incantato diretti contro di voi. Inoltre, fornisce Bonus di Scudo +4 alla CA, che si applica anche agli attacchi di contatto Incorporei, poiché è un effetto di forza. Lo scudo non ha penalità di armatura alla prova né probabilità di fallimento degli incantesimi arcani.</rdfs:comment>
+        <rdfs:label xml:lang="it">Scudo(Incantesimo)</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Supremazia_magica -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Supremazia_magica">
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Abilità"/>
+        <livelloRichiestoAbilità rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</livelloRichiestoAbilità>
+        <rdfs:comment xml:lang="it">Al 20° livello, Il mago apprende come convertire la sua Scorta Arcana in incantesimi e viceversa. Può lanciare qualsiasi incantesimo abbia preparato spendendo un numero di punti della sua Scorta Arcana pari a 1 + il livello dell&apos;incantesimo per farlo anziché uno slot incantesimo. Quando lancia un incantesimo in questo modo, considera il suo livello dell&apos;incantatore come se fosse più alto di 2 rispetto al normale e la CD di qualsiasi Tiro Salvezza associato all&apos;incantesimo aumenta di 2. Non può spendere ulteriori punti dalla sua Scorta Arcana per potenziare il lancio di un incantesimo in questo modo.</rdfs:comment>
+        <rdfs:label xml:lang="it">Supremazia magica</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Umano -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Umano">
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Razza"/>
+        <rdfs:comment xml:lang="it">Gli umani possiedono un&apos;eccezionale spinta e una grande capacità di resistere ed espandersi, e pertanto sono attualmente la razza dominante nel mondo. I loro imperi e nazioni sono ampi e in espansione e i cittadini di queste società scolpiscono i loro nomi con la forza delle armi e il potere dei loro incantesimi. L&apos;umanità è meglio caratterizzata dalla sua turbolenza e diversità e le culture umano vanno dalle tribù selvagge, dai rigidi codici d&apos;onore, alle famiglie nobili decadenti. La curiosità e l&apos;ambizione umane trionfano spesso sulla predilezione per uno stile di vita sedentario e molti lasciano le loro case per esplorare i numerosi angoli dimenticati del mondo o per condurre potenti eserciti per conquistare i vicini, semplicemente perché possono.</rdfs:comment>
+        <rdfs:label xml:lang="it">Umano</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Viktor -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Viktor">
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Creatura"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#PG"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Personaggio"/>
+        <conosceIncantesimo rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Palla_di_fuoco"/>
+        <conosceIncantesimo rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Scudo_magico"/>
+        <haAbilità rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Scrivere_pergamene"/>
+        <haClasse rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Mago"/>
+        <haGiocatore rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Andrea"/>
+        <haRazza rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Elfo"/>
+        <possiede rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Anello_di_protezione_1"/>
+        <possiede rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Pugnale"/>
+        <valoreLivelloPersonaggio rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreLivelloPersonaggio>
+        <rdfs:comment xml:lang="it">Elfo mago specializzato in necromanzia</rdfs:comment>
+        <rdfs:label xml:lang="it">Viktor</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="urn:swrl:var#p">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#c">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#a">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#plv">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#alv">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#i">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#ilv">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#PG"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#p"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Classe"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#c"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Abilità"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#haClasse"/>
+                                                <swrl:argument1 rdf:resource="urn:swrl:var#p"/>
+                                                <swrl:argument2 rdf:resource="urn:swrl:var#c"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#concedeAbilità"/>
+                                                        <swrl:argument1 rdf:resource="urn:swrl:var#c"/>
+                                                        <swrl:argument2 rdf:resource="urn:swrl:var#a"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#valoreLivelloPersonaggio"/>
+                                                                <swrl:argument1 rdf:resource="urn:swrl:var#p"/>
+                                                                <swrl:argument2 rdf:resource="urn:swrl:var#plv"/>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                <rdf:first>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#livelloRichiestoAbilità"/>
+                                                                        <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                                                                        <swrl:argument2 rdf:resource="urn:swrl:var#alv"/>
+                                                                    </rdf:Description>
+                                                                </rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                        <rdf:first>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#lessThanOrEqual"/>
+                                                                                <swrl:arguments rdf:parseType="Collection">
+                                                                                    <rdf:Description rdf:about="urn:swrl:var#alv"/>
+                                                                                    <rdf:Description rdf:about="urn:swrl:var#plv"/>
+                                                                                </swrl:arguments>
+                                                                            </rdf:Description>
+                                                                        </rdf:first>
+                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#haAbilità"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#p"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#a"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#PG"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#p"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Classe"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#c"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incantesimo_arcano"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#i"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#haClasse"/>
+                                                <swrl:argument1 rdf:resource="urn:swrl:var#p"/>
+                                                <swrl:argument2 rdf:resource="urn:swrl:var#c"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#concedeIncantesimiArcani"/>
+                                                        <swrl:argument1 rdf:resource="urn:swrl:var#c"/>
+                                                        <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrl:argument2>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#valoreLivelloPersonaggio"/>
+                                                                <swrl:argument1 rdf:resource="urn:swrl:var#p"/>
+                                                                <swrl:argument2 rdf:resource="urn:swrl:var#plv"/>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                <rdf:first>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#valoreLivelloIncantesimo"/>
+                                                                        <swrl:argument1 rdf:resource="urn:swrl:var#i"/>
+                                                                        <swrl:argument2 rdf:resource="urn:swrl:var#ilv"/>
+                                                                    </rdf:Description>
+                                                                </rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                        <rdf:first>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#lessThanOrEqual"/>
+                                                                                <swrl:arguments rdf:parseType="Collection">
+                                                                                    <rdf:Description rdf:about="urn:swrl:var#ilv"/>
+                                                                                    <rdf:Description rdf:about="urn:swrl:var#plv"/>
+                                                                                </swrl:arguments>
+                                                                            </rdf:Description>
+                                                                        </rdf:first>
+                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#conosceIncantesimo"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#p"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#i"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#PG"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#p"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Classe"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#c"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#Incantesimo_divino"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#i"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#haClasse"/>
+                                                <swrl:argument1 rdf:resource="urn:swrl:var#p"/>
+                                                <swrl:argument2 rdf:resource="urn:swrl:var#c"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#concedeIncantesimiDivini"/>
+                                                        <swrl:argument1 rdf:resource="urn:swrl:var#c"/>
+                                                        <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrl:argument2>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#valoreLivelloPersonaggio"/>
+                                                                <swrl:argument1 rdf:resource="urn:swrl:var#p"/>
+                                                                <swrl:argument2 rdf:resource="urn:swrl:var#plv"/>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                <rdf:first>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#valoreLivelloIncantesimo"/>
+                                                                        <swrl:argument1 rdf:resource="urn:swrl:var#i"/>
+                                                                        <swrl:argument2 rdf:resource="urn:swrl:var#ilv"/>
+                                                                    </rdf:Description>
+                                                                </rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                        <rdf:first>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#lessThanOrEqual"/>
+                                                                                <swrl:arguments rdf:parseType="Collection">
+                                                                                    <rdf:Description rdf:about="urn:swrl:var#ilv"/>
+                                                                                    <rdf:Description rdf:about="urn:swrl:var#plv"/>
+                                                                                </swrl:arguments>
+                                                                            </rdf:Description>
+                                                                        </rdf:first>
+                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/andre/ontologies/2025/0/PFWiki#conosceIncantesimo"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#p"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#i"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
